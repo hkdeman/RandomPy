@@ -1,0 +1,39 @@
+   <ion-content>
+  <ion-card>
+    <ion-card-header text-center>
+       {{cards.title}} 
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-content *ngIf="cards.video.length!=0">
+     <iframe width="WIDTH" height="HEIGHT"  [src]="cards.video.link | youTube" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+     </iframe> 
+    </ion-card-content> 
+  </ion-card>
+  <ion-card *ngIf="cards.card.length!=0">
+    <ion-card-header>
+      {{cards.card.title}}  
+    </ion-card-header>
+    <ion-card-content>
+       {{cards.card.content}} 
+    </ion-card-content>
+  </ion-card>
+  <ion-list *ngFor="let card of cards.para">
+    <ion-card>
+      <ion-card-content *ngIf="card.item=='para'">
+        {{card.para}}
+      </ion-card-content>
+      <ion-card-content *ngIf="card.item=='code'" color="primary">
+        <div [innerHtml]="card.code"></div>
+      </ion-card-content>
+      <ion-card-content *ngIf="card.item=='img'">
+        <img src="https://pythonprogramming.net{{card.img}}" style="max-width:100%"/>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-card>
+  </ion-card>
+   <footer text-center color="primary">
+    Disclaimer: All the information is taken from PythonProgramming.net
+  </footer>
+</ion-content>

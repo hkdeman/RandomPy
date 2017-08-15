@@ -1,14 +1,17 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <h3 text-center>Python Tutorials </h3>
+      <ion-card (click)="navigate(card.href)" *ngFor="let card of cards">
+        <img src="https://pythonprogramming.net/{{card.image}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{card.title}}
+            </ion-card-title>
+          <p>
+            {{card.content}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+  <footer text-center color="primary">
+    Disclaimer: All the information is taken from PythonProgramming.net
+  </footer>
 </ion-content>
